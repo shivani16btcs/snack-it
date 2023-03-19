@@ -8,11 +8,24 @@ import { TaglineComponent } from 'src/tagline/tagline.component';
 // import { RegisterComponent } from './auth/register/register.component';
 // import { ForgotPasswordComponent } from './auth/forgot-password/forgot-password.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { ForgotComponent } from './forgot/forgot.component';
+import { HomeComponent } from './home/home.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from '../app/shared/interceptors/auth-interceptor';
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     TaglineComponent,
+    LoginComponent,
+    RegisterComponent,
+    ForgotComponent,
+    HomeComponent,
     // LoginComponent,
     // RegisterComponent,
     // ForgotPasswordComponent
@@ -20,9 +33,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule, 
+    ReactiveFormsModule,
+    ToastrModule.forRoot() 
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

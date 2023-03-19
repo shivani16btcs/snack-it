@@ -50,7 +50,7 @@ export class LocalStorageService {
       token: token,
       username: username,
       userId: userId,
-      expireDuration: new Date(expireDuration),
+      // expireDuration: new Date(expireDuration),
       email: email,
       rememberMe: rememberMe,
       role:role
