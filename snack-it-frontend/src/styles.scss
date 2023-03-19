@@ -282,6 +282,7 @@
 
     .card.highlight-card span {
       margin-left: 72px;
+      height:40px;
     }
 
     svg#rocket-smoke {
@@ -296,3 +297,15 @@
       visibility: hidden;
     }
   }
+
+  .mt-5{
+    margin-top:20px;
+  }
+
+  .mr-10{
+    margin-right: 40px;
+  }
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
