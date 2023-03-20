@@ -24,9 +24,6 @@ constructor(
         { validators: [Validators.required, Validators.pattern(emailRegEx)] }),
       password: new FormControl(
         null,{ validators: [Validators.required] }
-      ),
-      rememberMe: new FormControl(
-        null,
       )
     });
   }

@@ -1,1 +1,52 @@
-<p>register works!</p>
+<section class="h-screen flex justify-center">
+  <div class="container h-full px-6 py-24">
+    <div class="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
+      <div class="mb-12 md:mb-0 md:w-8/12 lg:w-6/12">
+        <img src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" class="w-full"
+          alt="Phone image" />
+      </div>
+      <div class="md:w-8/12 lg:ml-6 lg:w-5/12">
+        <form [formGroup]="form" (submit)="onRegister()">
+          <div class="mb-6">
+            <label for="email" class="block mb-2 text-sm font-medium ">Email address</label>
+            <input type="email" autocomplete="off" formControlName="email"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600  dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="john.doe@company.com" required>
+            <div class="* text-sm font-semibold	 text-red-500"
+              *ngIf="form.get('email')?.invalid && form.get('email')?.touched">invalid email</div>
+          </div>
+          <div class="mb-6">
+            <label for="password" class="block mb-2 text-sm font-medium">Password</label>
+            <input type="password" autocomplete="off" formControlName="password"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600  dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="•••••••••" required>
+          </div>
+          <div class="mb-6">
+            <label for="password" class="block mb-2 text-sm font-medium">Confirm Password</label>
+            <input type="password" autocomplete="off" formControlName="confirmPassword"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600  dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="•••••••••" required>
+          </div>
+          <div class="mb-6">
+            <label for="password" class="block mb-2 text-sm font-medium">First Name</label>
+            <input type="password" autocomplete="off" formControlName="firstName"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600  dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="john" required>
+          </div>
+          <div class="mb-6">
+            <label for="password" class="block mb-2 text-sm font-medium">Last Name</label>
+            <input type="password" autocomplete="off" formControlName="secondName"
+              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600  dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="doe" required>
+          </div>
+          <button
+            class="fill-blue-500 mb-3 flex w-full items-center justify-center rounded bg-info px-7 pt-3 pb-2.5 text-center text-sm font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#54b4d3] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:bg-info-600 focus:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)] focus:outline-none focus:ring-0 active:bg-info-700 active:shadow-[0_8px_9px_-4px_rgba(84,180,211,0.3),0_4px_18px_0_rgba(84,180,211,0.2)]"
+            style="background-color: #55acee" href="#!" role="button" data-te-ripple-init data-te-ripple-color="light"
+            [disabled]="form.invalid">
+            Register
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
