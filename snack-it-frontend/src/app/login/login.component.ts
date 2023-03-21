@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 // import { LoginAuth } from '../models/loginAuth.model';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
   
 constructor(
   //  private authService: AuthService ,
+  private router: Router,
    private toastr: ToastrService ) { }
   ngOnInit(): void {
      const emailRegEx = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
@@ -34,14 +36,12 @@ constructor(
     if (this.form.invalid) {
       return;
     }
-    // const loginUser: LoginAuth = {
-    //         email: this.form.value.email,
-    //         password: this.form.value.password,
-    //         rememberMe: this.form.value.rememberMe
-    // };
-   
-    // this.authService.login( loginUser );
-   
+    const user = {
+            email: this.form.value.email,
+    };
+    window.localStorage.setItem('user', JSON.stringify(user));
+    this.router.navigate(['/home']);
+
   }
 
 }

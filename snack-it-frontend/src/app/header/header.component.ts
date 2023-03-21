@@ -2,20 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.scss']
 })
-export class HomeComponent implements OnInit {
-
+export class HeaderComponent implements OnInit {
   constructor( private router: Router ) { }
-
+  isUserLogin = false;
 
   ngOnInit(): void {
     let user:any=  window.localStorage.getItem('user');
-    // if(!user || !user?.email ){
-    //   this.logout();
-    // }
+    if(user || user?.email ){
+      this.isUserLogin=true;
+    }
   }
 
 
@@ -23,4 +22,5 @@ export class HomeComponent implements OnInit {
     window.localStorage.clear();
     this.router.navigate(['/login']);
   }
+
 }

@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from '../header/header.component';
+import { HeaderComponent } from './header/header.component';
 import { TaglineComponent } from 'src/tagline/tagline.component';
 // import { LoginComponent } from './auth/login/login.component';
 // import { RegisterComponent } from './auth/register/register.component';
@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from '../app/shared/interceptors/auth-interceptor';
 import { ToastrModule } from 'ngx-toastr';
+import { GetSnackDetailComponent } from './home/get-snack-detail/get-snack-detail.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { ToastrModule } from 'ngx-toastr';
     RegisterComponent,
     ForgotComponent,
     HomeComponent,
+    GetSnackDetailComponent,
     // LoginComponent,
     // RegisterComponent,
     // ForgotPasswordComponent
