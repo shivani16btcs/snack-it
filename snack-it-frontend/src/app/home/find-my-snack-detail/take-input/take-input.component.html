@@ -1,0 +1,21 @@
+<div class="w-full max-w-2xl p-8 mx-auto rounded-lg">
+    <form [formGroup]="form"  >
+        <p class="text-center uppercase text-bold">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+                (click)="filePicker.click()">Pick Image</button>
+            <input type="file" #filePicker   name="image" accept="image/*" class="hidden"
+                (change)="onImagePicked($event)">
+        </p>
+        <div *ngIf="imagePreview !== '' && imagePreview && form.get('image')?.valid">
+            <div class="h-60 flex items-center justify-center mb-5">
+                <img [src]="imagePreview" [alt]="form.value.title" class="h-full">
+            </div>
+            <button
+                class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+                (click)="onSavePost()">Save Post</button>&nbsp;&nbsp;
+            <button
+                class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded"
+                (click)="oncancel()"> Cancel</button>
+        </div>
+    </form>
+</div>

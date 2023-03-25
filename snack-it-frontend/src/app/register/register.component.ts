@@ -1,9 +1,9 @@
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-// import { AuthService } from '../shared/services/auth.service';
+import { ApiService } from '../shared/services/api.service';
 import { Register } from '../shared/models/registerAuth.model';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { ToastrModule } from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -17,9 +17,9 @@ export class RegisterComponent implements OnInit {
   submitButton = 'Register';
 
   constructor( 
-    // private authService: AuthService,
-               private route: ActivatedRoute,
-               private router: Router
+               private router: Router,
+               private apiService: ApiService,
+               private toastr: ToastrService
              ) { }
 
   ngOnInit(): void {
@@ -44,29 +44,9 @@ export class RegisterComponent implements OnInit {
       secondName: new FormControl( '' )
     });
 
-    this.route.paramMap
-      .subscribe( (paramMap: ParamMap) => {
-        if ( paramMap.has('emailId') ) {
-//           this.authService.getUser( paramMap.get('emailId') )
-//             .subscribe( user => {
-//               this.password = 'Enter your new password';
-//               this.confirmPassword = 'Re-Enter your new password';
-//               this.submitButton = 'Update';
-              
-// this.form.patchValue(
-//                 {
-//                   email: user.email,
-//                   firstName: user.username.split(' ')[0],
-//                   secondName: user.username.split(' ')[1]
-//                 });
-//             } );
-        }
-      } );
-
   }
 
   onRegister() {
-    console.log("register",this.form)
     this.checkPassword();
     if ( this.form.invalid ) {
       return;
@@ -76,11 +56,13 @@ export class RegisterComponent implements OnInit {
         password: this.form.value.password,
         email: this.form.value.email
       };
-      // if ( this.submitButton === 'Register' ) {
-      //   this.authService.registerUser( user );
-      // } else {
-      //   this.authService.updateUser( user, this.authService.getEmail() );
-      // }
+      // this.apiService.registerUser(user).subscribe(data => {
+        console.log(user)
+        this.router.navigate(['/login']);
+        this.toastr.success('registered sucessfully');
+      // }, (error) => {
+      //   this.toastr.error("registeration failed !!");
+      // })
     }
   }
 

@@ -1,26 +1,20 @@
-<div class="toolbar" role="banner">
-    <img
-      width="40"
-      alt="Angular Logo"
-      src="../assets/MicrosoftTeams-image-removebg-preview-aa.png"
-    />
-    <span class="text-xl font-bold">Snack It</span>
-      <div class="spacer"></div>
-      <!-- <button class="mr-10">Login</button> -->
-      <div *ngIf="!isUserLogin; else elseBlock">
-
-      <button class="mr-14 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+<div class="h-20 toolbar" role="banner">
+  <img width="40" alt="Angular Logo" src="../assets/MicrosoftTeams-image-removebg-preview-aa.png" />
+  <span class="text-xl font-bold">Snack It</span>
+  <div class="spacer"></div>
+  <div *ngIf="!isUserLogin; else elseBlock">
+    <button
+      class="mr-14 border-2 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border-gray-400 rounded shadow"
       routerLink="/login">
-        login
-      </button>
-    </div>
-    <ng-template #elseBlock>
-    
-      <button class="mr-14 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
-      (click)="logout()">
-        logout
-      </button>
-    </ng-template>
-
+      login
+    </button>
   </div>
-  
+  <ng-template #elseBlock>
+    <button
+      class="mr-14 bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow"
+      (click)="logout()">
+      logout
+    </button>
+  </ng-template>
+
+</div>

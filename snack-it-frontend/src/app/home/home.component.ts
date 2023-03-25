@@ -7,9 +7,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  activeButton='';
   constructor( private router: Router ) { }
 
+
+  filterButtons = [
+    { text: 'find my snack detail', isClicked: false },
+    { text: 'suggest my snack', isClicked: false },
+  ]
+
+
+  setActive(button: any): void {
+    for(let but of this.filterButtons) {
+      but.isClicked = false;
+    }
+    button.isClicked = true;
+    this.activeButton=button.text
+  }
 
   ngOnInit(): void {
     let user:any=  window.localStorage.getItem('user');

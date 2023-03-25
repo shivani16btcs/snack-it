@@ -14,9 +14,12 @@ import { ForgotComponent } from './forgot/forgot.component';
 import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AuthInterceptor } from '../app/shared/interceptors/auth-interceptor';
-import { ToastrModule } from 'ngx-toastr';
-import { GetSnackDetailComponent } from './home/get-snack-detail/get-snack-detail.component';
+import { ToastContainerModule, ToastrModule } from 'ngx-toastr';
+import { FindMySnackDetailComponent } from './home/find-my-snack-detail/find-my-snack-detail.component';
+import { SuggestMySnackComponent } from './home/suggest-my-snack/suggest-my-snack.component';
+import { TakeInputComponent } from './home/find-my-snack-detail/take-input/take-input.component';
+import { ApiService } from './shared/services/api.service';
+import {HttpClientModule, HttpClient} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,9 @@ import { GetSnackDetailComponent } from './home/get-snack-detail/get-snack-detai
     RegisterComponent,
     ForgotComponent,
     HomeComponent,
-    GetSnackDetailComponent,
+    FindMySnackDetailComponent,
+    SuggestMySnackComponent,
+    TakeInputComponent,
     // LoginComponent,
     // RegisterComponent,
     // ForgotPasswordComponent
@@ -37,14 +42,14 @@ import { GetSnackDetailComponent } from './home/get-snack-detail/get-snack-detai
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule, 
+    HttpClientModule,
     ReactiveFormsModule,
-    ToastrModule.forRoot() 
+    ToastrModule.forRoot({}),
+    ToastContainerModule 
   ],
-  providers: [{
-    provide: HTTP_INTERCEPTORS,
-    useClass: AuthInterceptor,
-    multi: true
-  }],
+  providers: [
+  ApiService
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

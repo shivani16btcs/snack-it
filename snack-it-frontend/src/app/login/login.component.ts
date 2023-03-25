@@ -1,9 +1,8 @@
-// import { AuthService } from './../auth.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-// import { LoginAuth } from '../models/loginAuth.model';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { ApiService } from '../shared/services/api.service';
 
 @Component({
   selector: 'app-login',
@@ -15,12 +14,12 @@ export class LoginComponent implements OnInit {
   isLoading = false;
   
 constructor(
-  //  private authService: AuthService ,
   private router: Router,
-   private toastr: ToastrService ) { }
+   private toastr: ToastrService,
+   private apiService: ApiService,
+   ) { }
   ngOnInit(): void {
      const emailRegEx = '^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$';
-   // const emailRegEx = '^[a-zA-Z0-9_\-\.]+@[a-zA-Z0-9_\-\.]+\.[a-zA-Z]{2,5}$';
     this.form = new FormGroup({
       email: new FormControl(null,
         { validators: [Validators.required, Validators.pattern(emailRegEx)] }),
@@ -38,10 +37,17 @@ constructor(
     }
     const user = {
             email: this.form.value.email,
+            password: this.form.value.password
     };
-    window.localStorage.setItem('user', JSON.stringify(user));
+    // this.apiService.loginUser(user).subscribe(data => {
+    console.log(user)
+    window.localStorage.setItem('user', JSON.stringify(user.email));
+    this.toastr.success('login sucessfully!');
     this.router.navigate(['/home']);
-
+    // }, (error) => {
+    //   this.toastr.error("registeration failed !!");
+    // })
   }
+
 
 }
