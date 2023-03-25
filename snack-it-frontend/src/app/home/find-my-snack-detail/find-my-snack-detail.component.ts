@@ -19,7 +19,7 @@ export class FindMySnackDetailComponent implements OnInit {
   imagePreview: string;
   isSnackDataFound: boolean = false
   foodNutrient:any;
-
+  isLoading=false;
   constructor(
     private apiService: ApiService
   ) { }
@@ -30,6 +30,7 @@ export class FindMySnackDetailComponent implements OnInit {
   }
 
   onSavePost(event: any) {
+    this.isLoading=true;
     this.imagePreview = event.imagePreview;
     this.isSnackDataFound = true;
     setTimeout(async () => {
@@ -40,11 +41,11 @@ export class FindMySnackDetailComponent implements OnInit {
         if(foodData&&foodData?.foods&& foodData?.foods?.length && foodData?.foods[0]?.foodNutrients){
           this.foodNutrient=foodData.foods[0].foodNutrients
         }
-        console.log("data", this.foodNutrient)
+        this.isLoading=false;
       }, (error) => {
         console.log('error', error)
+        this.isLoading=false;
       })
-      console.log("predictions", this.predictions)
     }, 0);
 
   }

@@ -27,6 +27,7 @@ export class TakeInputComponent {
     });
   }
   onImagePicked(event:any) {
+      this.isLoading = true;
       const target = event.target as HTMLInputElement;
       const file: File = (target.files as FileList)[0];
       this.form.patchValue({ image: file });
@@ -34,6 +35,7 @@ export class TakeInputComponent {
       const reader = new FileReader();
       reader.onload = () => {
         this.imagePreview = reader.result as string;
+        this.isLoading= false
       };
       reader.readAsDataURL(file);   
   }
