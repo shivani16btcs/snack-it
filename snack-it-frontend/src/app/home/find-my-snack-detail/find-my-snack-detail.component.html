@@ -1,49 +1,40 @@
 <div *ngIf="!isSnackDataFound">
-    <app-take-input (newItemEvent)="onSavePost($event)"></app-take-input>
+  <app-take-input (newItemEvent)="onSavePost($event)"></app-take-input>
 </div>
 
- <!-- after image upload view -->
-<div class="lg:flex"
- *ngIf="isSnackDataFound">
-	<div
-		class="rounded-t-2xl px-4 text-se-black lg:w-4/12 lg:rounded-l-2xl lg:rounded-tr-none lg:pl-28"
-		>
-			<section class="hero container mx-auto max-w-screen-lg pt-10 pb-5">
-                <div class="h-60 flex items-center justify-center mb-5">
-                    <img [src]="imagePreview"  class="h-full">
-                </div>			
-            </section>
-			<div class="flex flex-col justify-center items-center">
-				<p class="text-3xl	font-bold"> snack Name </p>
-				<div class="my-2 text-lg font-normal"> rating </div>
-			</div>
-	</div>
-	<div class="rounded-b-2x py-16 lg:w-8/12 w-full lg:rounded-r-2xl lg:rounded-bl-none lg:px-24">
-        <table class="min-w-full text-left text-sm font-light">
-            <thead class="border-b font-medium dark:border-neutral-500">
-              <tr>
-                <th scope="col" class="px-6 py-4">#</th>
-                <th scope="col" class="px-6 py-4">First</th>
-                <th scope="col" class="px-6 py-4">Last</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="border-b dark:border-neutral-500">
-                <td class="whitespace-nowrap px-6 py-4 font-medium">1</td>
-                <td class="whitespace-nowrap px-6 py-4">Mark</td>
-                <td class="whitespace-nowrap px-6 py-4">Otto</td>
-              </tr>
-              <tr class="border-b dark:border-neutral-500">
-                <td class="whitespace-nowrap px-6 py-4 font-medium">2</td>
-                <td class="whitespace-nowrap px-6 py-4">Jacob</td>
-                <td class="whitespace-nowrap px-6 py-4">Thornton</td>
-              </tr>
-              <tr class="border-b dark:border-neutral-500">
-                <td class="whitespace-nowrap px-6 py-4 font-medium">3</td>
-                <td class="whitespace-nowrap px-6 py-4">Larry</td>
-                <td class="whitespace-nowrap px-6 py-4">Wild</td>
-              </tr>
-            </tbody>
-          </table>
-	</div>
+<!-- after image upload view -->
+<div class="lg:flex" *ngIf="isSnackDataFound">
+  <div class="rounded-t-2xl px-4 text-se-black lg:w-4/12 lg:rounded-l-2xl lg:rounded-tr-none lg:pl-28">
+    <section class="hero container mx-auto max-w-screen-lg pt-10 pb-5">
+      <div class="h-60 flex items-center justify-center mb-5">
+        <img #imageSRC [src]="imagePreview" class="h-full">
+      </div>
+    </section>
+   
+    <div class="flex flex-col justify-center items-center" *ngIf="predictions?.length>0">
+
+      <p class="text-3xl	font-bold"> {{predictions[0].className}}  </p>
+      <div class="my-2 text-lg font-normal"> {{predictions[0].probability | percent}} </div>
+    </div>
+  </div>
+  <div class="rounded-b-2x py-16 lg:w-8/12 w-full lg:rounded-r-2xl lg:rounded-bl-none lg:px-24">
+    <table class="min-w-full text-left text-sm font-light">
+      <thead class="border-b font-medium dark:border-neutral-500">
+        <tr>
+          <th scope="col" class="px-6 py-4">#</th>
+          <th scope="col" class="px-6 py-4"> Name</th>
+          <th scope="col" class="px-6 py-4"> value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-b dark:border-neutral-500" *ngFor="let food of foodNutrient; index as i">
+          <td class="whitespace-nowrap px-6 py-4 font-medium">{{i}}</td>
+          <td class="whitespace-nowrap px-6 py-4">{{food?.nutrientName}}</td>
+          <td class="whitespace-nowrap px-6 py-4">{{food?.value}}&nbsp;{{food?.unitName}}</td>
+        </tr>
+
+      </tbody>
+    </table>
+    <div *ngIf="!foodNutrient?.length" class="whitespace-nowrap px-6 py-4 font-medium flex items-center justify-center ">No details Found</div>
+  </div>
 </div>

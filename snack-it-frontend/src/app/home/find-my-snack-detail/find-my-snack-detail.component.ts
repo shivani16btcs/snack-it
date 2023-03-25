@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import * as mobilenet from '@tensorflow-models/mobilenet';
+import { ApiService } from 'src/app/shared/services/api.service';
 
 @Component({
   selector: 'app-find-my-snack-detail',
@@ -11,21 +12,42 @@ import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 export class FindMySnackDetailComponent implements OnInit {
 
+  @ViewChild('imageSRC')
+  imageSRCVariable: ElementRef;
+  predictions: any;
+  model: any
   imagePreview: string;
-  isSnackDataFound:boolean= false
+  isSnackDataFound: boolean = false
+  foodNutrient:any;
 
   constructor(
- 
+    private apiService: ApiService
   ) { }
 
-  ngOnInit(): void {
+  async ngOnInit() {
+    this.model = await mobilenet.load();
 
   }
 
-  onSavePost(event:any){
-    this.imagePreview =  event.imagePreview;
+  onSavePost(event: any) {
+    this.imagePreview = event.imagePreview;
     this.isSnackDataFound = true;
+    setTimeout(async () => {
+      this.predictions = await this.model.classify(this.imageSRCVariable.nativeElement);
+      let foodItem = this.predictions[0].className;
+      this.apiService.getFoodNutrition(foodItem).subscribe((data:any) => {
+        const foodData= JSON.parse(JSON.stringify(data));
+        if(foodData&&foodData?.foods&& foodData?.foods?.length && foodData?.foods[0]?.foodNutrients){
+          this.foodNutrient=foodData.foods[0].foodNutrients
+        }
+        console.log("data", this.foodNutrient)
+      }, (error) => {
+        console.log('error', error)
+      })
+      console.log("predictions", this.predictions)
+    }, 0);
+
   }
-   
+
 }
 

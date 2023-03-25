@@ -20,6 +20,7 @@
     "module": "ES2022",
     "useDefineForClassFields": false,
     "strictPropertyInitialization": false,
+    "skipLibCheck": true,
     "lib": [
       "ES2022",
       "dom"
@@ -30,5 +31,8 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "types": [
+    "long"
+  ],
 }
