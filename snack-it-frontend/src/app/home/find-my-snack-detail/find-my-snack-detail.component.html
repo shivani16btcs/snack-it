@@ -16,8 +16,27 @@
       <div class="my-2 text-lg font-normal"> {{predictions[0].probability | percent}} </div>
     </div>
   </div>
-  <div class="rounded-b-2x py-16 lg:w-8/12 w-full lg:rounded-r-2xl lg:rounded-bl-none lg:px-24">
+  <div class="rounded-b-2x py-16 lg:w-8/12 w-full lg:rounded-r-2xl lg:rounded-bl-none lg:px-24 ">
 
+
+
+    <!-- data available -->
+    <table class="min-w-full text-left text-sm font-light">
+      <thead class="min-w-full border-b font-medium dark:border-neutral-500">
+        <tr>
+          <th scope="col" class="px-6 py-4">#</th>
+          <th scope="col" class="px-6 py-4"> Name</th>
+          <th scope="col" class="px-6 py-4"> value</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="foodNutrient?.length&&!isLoading">
+        <tr class="border-b dark:border-neutral-500" *ngFor="let food of foodNutrient; index as i">
+          <td class="whitespace-nowrap px-6 py-4 font-medium">{{i}}</td>
+          <td class="whitespace-nowrap px-6 py-4">{{food?.nutrientName}}</td>
+          <td class="whitespace-nowrap px-6 py-4">{{food?.value}}&nbsp;{{food?.unitName}}</td>
+        </tr>
+      </tbody>
+    </table>
     <!-- no data available -->
     <div *ngIf="isLoading">
       <div role="status" class="flex items-center justify-center mt-20">
@@ -34,26 +53,6 @@
       </div>
     </div>
     <div *ngIf="!foodNutrient?.length&&!isLoading"
-      class="whitespace-nowrap px-6 py-4 font-medium flex items-center justify-center ">No details Found</div>
-
-    <!-- data available -->
-    <table class="min-w-full text-left text-sm font-light">
-      <thead class="border-b font-medium dark:border-neutral-500">
-        <tr>
-          <th scope="col" class="px-6 py-4">#</th>
-          <th scope="col" class="px-6 py-4"> Name</th>
-          <th scope="col" class="px-6 py-4"> value</th>
-        </tr>
-      </thead>
-      <tbody class="h-96">
-        <tr class="border-b dark:border-neutral-500" *ngFor="let food of foodNutrient; index as i">
-          <td class="whitespace-nowrap px-6 py-4 font-medium">{{i}}</td>
-          <td class="whitespace-nowrap px-6 py-4">{{food?.nutrientName}}</td>
-          <td class="whitespace-nowrap px-6 py-4">{{food?.value}}&nbsp;{{food?.unitName}}</td>
-        </tr>
-
-      </tbody>
-    </table>
-
+      class="whitespace-nowrap px-6 py-4 text-lg font-medium flex items-center justify-center ">No details Found</div>
   </div>
 </div>
