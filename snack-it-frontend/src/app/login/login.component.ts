@@ -42,7 +42,7 @@ constructor(
     // this.apiService.loginUser(user).subscribe(data => {
     console.log(user)
     window.localStorage.setItem('user', JSON.stringify(user.email));
-    this.toastr.success('login sucessfully!');
+    // this.toastr.success('login sucessfully!');
     this.router.navigate(['/home']);
     // }, (error) => {
     //   this.toastr.error("registeration failed !!");

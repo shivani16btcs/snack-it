@@ -1,6 +1,6 @@
 <app-header></app-header>
 
-<div class="mt-32 mb-14 w-max m-auto" *ngIf="!activeButton">
+<div class="mt-48 mb-14 lg:w-max lg:mx-auto mx-5" *ngIf="!activeButton">
   <app-tagline></app-tagline>
 </div>
 
@@ -8,13 +8,13 @@
 
 <div class="card-container" *ngIf="!activeButton">
   <button mat-button *ngFor="let button of filterButtons"
-    [ngClass]="{'border-0 text-white from-blue-500 via-blue-600 to-blue-700  shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80': button.isClicked}"
+    [ngClass]="{'border-0 text-white from-blue-500 via-blue-600 to-blue-700  shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80': button.isClicked && activeButton==button.text }"
     class=" bg-gradient-to-r bg-slate-100 border-2  hover:bg-gradient-to-br focus:ring-4 focus:outline-none capitalize rounded-lg text-sm my-2 px-5 py-2.5  text-center mx-5 font-bold"
     (click)="setActive(button)">
     {{ button.text }}
   </button>
 </div>
-<div class="pt-28 pl-16" *ngIf="activeButton">
+<div class="pt-28 lg:pl-16 pl-5" *ngIf="activeButton">
 
   <button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"
     class="inline-block p-3 bg-blue-600 text-white font-bold text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out bottom-5 right-5"

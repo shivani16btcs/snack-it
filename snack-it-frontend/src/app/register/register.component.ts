@@ -59,7 +59,7 @@ export class RegisterComponent implements OnInit {
       // this.apiService.registerUser(user).subscribe(data => {
         console.log(user)
         this.router.navigate(['/login']);
-        this.toastr.success('registered sucessfully');
+        // this.toastr.success('registered sucessfully');
       // }, (error) => {
       //   this.toastr.error("registeration failed !!");
       // })

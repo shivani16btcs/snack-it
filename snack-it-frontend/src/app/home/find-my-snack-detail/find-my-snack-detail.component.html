@@ -21,22 +21,38 @@
 
 
     <!-- data available -->
-    <table class="min-w-full text-left text-sm font-light">
-      <thead class="min-w-full border-b font-medium dark:border-neutral-500">
-        <tr>
-          <th scope="col" class="px-6 py-4">#</th>
-          <th scope="col" class="px-6 py-4"> Name</th>
-          <th scope="col" class="px-6 py-4"> value</th>
-        </tr>
-      </thead>
-      <tbody *ngIf="foodNutrient?.length&&!isLoading">
-        <tr class="border-b dark:border-neutral-500" *ngFor="let food of foodNutrient; index as i">
-          <td class="whitespace-nowrap px-6 py-4 font-medium">{{i}}</td>
-          <td class="whitespace-nowrap px-6 py-4">{{food?.nutrientName}}</td>
-          <td class="whitespace-nowrap px-6 py-4">{{food?.value}}&nbsp;{{food?.unitName}}</td>
-        </tr>
-      </tbody>
-    </table>
+
+    <ul class="mb-4 text-lg">
+      <li class="border-b 
+					border-light-gray-2 
+					p-2 lg:flex">
+        <!-- <div class="font-bold 
+          lg:w-2/5">#</div> -->
+        <div class="font-bold 
+					    lg:w-2/5">
+          Name
+        </div>
+        <div class="font-bold 
+          lg:w-2/5">value</div>
+      </li>
+    </ul>
+    <div [ngClass]="{'h-96 overflow-y-auto':!isLoading}">
+      <ul class="mb-4" *ngFor="let food of foodNutrient; index as i">
+        <li class="border-b 
+            border-light-gray-2 
+            p-2 lg:flex">
+          <!-- <div class="font-bold 
+            lg:w-2/5">{{i}}</div> -->
+          <div class="font-bold 
+                lg:w-2/5">
+            {{food?.nutrientName}}
+          </div>
+          <div class="font-bold 
+          lg:w-2/5">{{food?.value}}&nbsp;{{food?.unitName}}</div>
+        </li>
+      </ul>
+    </div>
+
     <!-- no data available -->
     <div *ngIf="isLoading">
       <div role="status" class="flex items-center justify-center mt-20">
