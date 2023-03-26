@@ -17,9 +17,9 @@
 <div class="pt-28 pl-16" *ngIf="activeButton">
 
   <button type="button" data-mdb-ripple="true" data-mdb-ripple-color="light"
-    class="inline-block p-3 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out bottom-5 right-5"
+    class="inline-block p-3 bg-blue-600 text-white font-bold text-xs leading-tight uppercase rounded-full shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out bottom-5 right-5"
     id="btn-back-to-top" (click)="activeButton=''">
-    <- 
+    🡰
   </button>
       <div *ngIf="activeButton === 'find my snack detail'">
         <app-find-my-snack-detail></app-find-my-snack-detail>
