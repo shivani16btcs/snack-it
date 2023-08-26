@@ -4,8 +4,6 @@
   <app-tagline></app-tagline>
 </div>
 
-
-
 <div class="card-container" *ngIf="!activeButton">
   <button mat-button *ngFor="let button of filterButtons"
     [ngClass]="{'border-0 text-white from-blue-500 via-blue-600 to-blue-700  shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80': button.isClicked && activeButton==button.text }"

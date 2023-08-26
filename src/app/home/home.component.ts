@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 
   filterButtons = [
     { text: 'find my snack detail', isClicked: false },
-    { text: 'suggest my snack', isClicked: false },
+    // { text: 'suggest my snack', isClicked: false },
   ]
 
 
