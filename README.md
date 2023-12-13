@@ -7,9 +7,8 @@
 ## Tech Stack
 
 - **Frontend Framework:** Angular
-- **Image Recognition:** [Your Image Recognition Library/Service]
-- **Backend (if applicable):** [Your Backend Technology]
-- **Database (if applicable):** [Your Database Technology]
+- **Image Recognition:** tensorflow
+- **Backend :** https://app.swaggerhub.com/apis/fdcnal/food-data_central_api/1.0.1#/FDC/postFoodsSearch
 
 ## Features
 
