@@ -1,27 +1,38 @@
-# SnackItFrontend
+# Snack It
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
+## Overview
 
-## Development server
+"Snack It" is a modern web application designed to provide users with instant nutrition details for snacks through photo analysis. This project promotes smarter and healthier snacking choices on the go.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Tech Stack
 
-## Code scaffolding
+- **Frontend Framework:** Angular
+- **Image Recognition:** [Your Image Recognition Library/Service]
+- **Backend (if applicable):** [Your Backend Technology]
+- **Database (if applicable):** [Your Database Technology]
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Features
 
-## Build
+- **Instant Nutrition Analysis:** Capture a photo of your snack for immediate insights into calories, macronutrients, and ingredients.
+- **Angular Components:** Utilizes Angular components for a modular and maintainable frontend architecture.
+- **User-Friendly Interface:** Angular Material design for an intuitive and visually appealing user experience.
+- **Customization:** [Any other key features]
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Getting Started
 
-## Running unit tests
+### Prerequisites
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Node.js and npm installed
+- Angular CLI: `npm install -g @angular/cli`
+- [Additional prerequisites]
 
-## Running end-to-end tests
+### Installation
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+1. Clone the repository: `git clone [repository_url]`
+2. Install dependencies: `npm install`
+3. [Additional installation steps]
 
-## Further help
+### Usage
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Run the application: `ng serve`
+2. Open the application in your browser at `http://localhost:4200`
