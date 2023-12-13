@@ -2,8 +2,8 @@
 
 ## Overview
 
-[snack-it.vercel.app](https://snack-it.vercel.app/home)
-"Snack It" is a modern web application designed to provide users with instant nutrition details for snacks through photo analysis. This project promotes smarter and healthier snacking choices on the go.
+[Snack It](https://snack-it.vercel.app/home)
+is a modern web application designed to provide users with instant nutrition details for snacks through photo analysis. This project promotes smarter and healthier snacking choices on the go.
 
 ## Tech Stack
 
@@ -16,7 +16,6 @@
 - **Instant Nutrition Analysis:** Capture a photo of your snack for immediate insights into calories, macronutrients, and ingredients.
 - **Angular Components:** Utilizes Angular components for a modular and maintainable frontend architecture.
 - **User-Friendly Interface:** Angular Material design for an intuitive and visually appealing user experience.
-- **Customization:** [Any other key features]
 
 ## Getting Started
 
